@@ -8324,9 +8324,7 @@
 
 	var axios = axios$2.exports;
 
-	// const requset_url = 'http://vip-test.51.la/open';
-
-	const requset_url = 'http://192.168.1.237:9350/open';
+	const requset_url = 'https://v6-open.51.la/open';
 
 	function alphabeticalSort(a, b) {
 	  return a.localeCompare(b);

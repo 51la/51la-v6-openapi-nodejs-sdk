@@ -7,9 +7,7 @@ import encUtf8 from 'crypto-js/enc-utf8';
 import qs from 'qs';
 import axios from 'axios';
 
-// const requset_url = 'https://v6-open.51.la/open';
-// const requset_url = 'http://vip-test.51.la/open';
-const requset_url = 'http://192.168.1.237:9350/open';
+const requset_url = 'https://v6-open.51.la/open';
 
 function alphabeticalSort(a, b) {
   return a.localeCompare(b);

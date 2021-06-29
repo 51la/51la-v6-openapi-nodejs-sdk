@@ -14,7 +14,13 @@ getLaApiData.setOptions({
 // API调用 (DEMO)
 
 // Promise then
-getLaApiData.requestApi('/sitegroup/list').then(result => console.log(result.data)).catch(error => console.log(error))
+getLaApiData.requestApi('/sitegroup/list', {
+  // 参数
+}).then(result => {
+  console.log(result.data)
+}).catch(error => {
+  console.log(error)
+})
 
 // Promise async/await
 // const result = await getLaApiData.requestApi('/sitegroup/list');
