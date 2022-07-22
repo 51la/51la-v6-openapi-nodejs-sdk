@@ -1,10 +1,10 @@
 {
   "name": "51la-v6-openapi-nodejs-sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jakholuo/51la-v6-openapi-nodejs-sdk"
+    "url": "https://github.com/51la/51la-v6-openapi-nodejs-sdk"
   },
   "main": "dist/51la-v6-openapi-nodejs-sdk.js",
   "module": "dist/51la-v6-openapi-nodejs-sdk-es.js",

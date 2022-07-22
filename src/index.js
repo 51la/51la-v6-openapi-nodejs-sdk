@@ -23,22 +23,43 @@ export function init() {
       sk: '',
       type: 2,
       setOptions: function (p) {
-        if (!p.ak || !p.sk) {
-          console.log('[51LA_OPENAPI] sign 参数加密失败: 缺少accessKey或secretKey参数!');
-          return null;
-        }
-        this.ak = p.ak;
-        this.sk = p.sk;
         (p.type && Number(p.type)) && (this.type = Number(p.type))
+        if (this.type === 1) {
+          if (!p.ak) {
+            console.log('[51LA_OPENAPI] sign 参数加密失败: 缺少accessKey参数!');
+            return null;
+          }
+          this.ak = p.ak;
+        } else {
+          if (!p.ak || !p.sk) {
+            console.log('[51LA_OPENAPI] sign 参数加密失败: 缺少accessKey或secretKey参数!');
+            return null;
+          }
+          this.ak = p.ak;
+          this.sk = p.sk;
+        }
       },
       getSign: function () {
         try {
-          if (!this.ak || !this.sk) {
-            console.log('[51LA_OPENAPI] sign 参数加密失败: 还未设置accessKey或secretKey参数!');
-            return null;
-          }
           const nonce = Math.random().toString(36).slice(-4);
           const timestamp = new Date().valueOf();
+          if (this.type === 1) {
+            if (!this.ak) {
+              console.log('[51LA_OPENAPI] sign 参数加密失败: 还未设置accessKey参数!');
+              return null;
+            }
+            return {
+              accessKey: this.ak,
+              nonce,
+              timestamp,
+              sign: this.ak
+            }
+          } else {
+            if (!this.ak || !this.sk) {
+              console.log('[51LA_OPENAPI] sign 参数加密失败: 还未设置accessKey或secretKey参数!');
+              return null;
+            }
+          }
           const params = {
             accessKey: this.ak,
             nonce,
